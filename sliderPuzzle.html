@@ -87,10 +87,32 @@
             </div>
             <div id = "botones-pantalla-inicial" class="text-center">
               <button type="button" onclick="cambiarVista('vista-inicial','vista-seleccion-imagen');agregarImagenes();" class="btn btn-primary btn-block btn-custom">Nuevo Juego</button>
-              <button type="button" onclick="cambiarVista('vista-inicial','vista-seleccion-imagen');agregarImagenes();" class="btn btn-primary btn-block btn-custom">Resumir Juego</button>
+              <button type="button" onclick="cambiarVista('vista-inicial','vista-resumir-juego');" class="btn btn-primary btn-block btn-custom">Resumir Juego</button>
             </div>
           </div>
           
+
+          <!-- Vista para resumir juegos guardados -->
+
+          <div id = "vista-resumir-juego">
+            <!-- este es el boton de regresar -->
+            <div id= "boton-regresar" class= "boton-regresar left">
+              <button type="button" onclick="cambiarVista('vista-resumir-juego','vista-inicial');" class="btn btn-primary btn-md btn-custom"> <span class="glyphicon glyphicon-arrow-left"> </span> </button>
+            </div>
+
+            <!-- Los formularios para recoger el texto y el boton para enviar
+                  el texto -->
+
+            <div id = "formulario-resumir-juego" class= "form-group">
+                <label for="estado-juego"> <p> Pegue aqui el texto dado cuando guardo su juego: </p> </label>
+                <input type="text" class="form-control" id="estado-juego">
+            </div> 
+            <div id = "boton-resumir-juego">
+              <button type="button" class="btn btn-primary btn-lg btn-custom"> Jugar </button>
+            </div>
+          </div>
+
+          <!-- Vista para seleccionar una manifestacion -->
 
           <div id="vista-seleccion-imagen">
             <p>Seleccione una Manifestacion</p>
@@ -101,8 +123,6 @@
           <div id="vista-seleccion-tamano">
             <p>Seleccione un tamaño</p>
           </div> -->
-
-
 
           <!-- Divisor que contiene al canvas del juego y 
                todo lo que se muestra en el -->

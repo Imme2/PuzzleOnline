@@ -60,9 +60,15 @@ body {
 
 */
 
-/* Se inician las dos vistas no iniciales como no visibles */
+/* Margen para el boton de regreso en algunas pantallas */
 
-#vista-juego, #vista-seleccion-imagen{
+.boton-regresar {
+    margin-bottom: 10%;
+}
+
+/* Se inician las vistas no iniciales como no visibles */
+
+#vista-juego, #vista-seleccion-imagen, #vista-resumir-juego {
   display: none;
 }
 
