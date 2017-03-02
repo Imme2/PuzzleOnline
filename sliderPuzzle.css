@@ -1,0 +1,73 @@
+/* Fondo de la pagina */
+html {
+  background-image: url('resources/texturaFondo.jpg');
+}
+
+/* Fondo de la pagina para el cuerpo */
+body {
+  background-image: url('resources/texturaFondo.jpg');
+  padding-top: 50px;
+}
+
+/* padding y centrado para no se que todavia, TODO: Saber que hace eso;             */
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+/* Cambio del color del header */
+.navbar-custom {
+    color: #000000; 
+    background-color: #9b1212;
+}
+
+
+
+/* letra del header */
+.navbar-brand, .navbar-brand:hover{
+	color: #000000;
+}
+/* colores del header */
+.navbar li:active a{
+  color: black;
+  background-color: #6d0a0a !important;
+}
+
+.navbar a, .navbar a:hover {
+  color: black;
+  background-color: #9b1212 !important;
+}
+/* Cambio de color del background de los objetos activos en el header */
+/* debe ir despues del hover */
+
+
+
+
+/* custom jumbotron para centrarlo */
+
+.vertical-center {
+  min-height: 85%;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/*
+
+
+    SECCION DEL JUEGO
+
+
+*/
+
+/* Se inician las dos vistas no iniciales como no visibles */
+
+#vista-juego, #vista-seleccion-imagen{
+  display: none;
+}
+
+
+/* Customizaciones automaticas */
+
+/* un estilo de boton */
+.btn-custom { background-color: hsl(0, 62%, 29%) !important; background-repeat: repeat-x; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a12525", endColorstr="#771c1c"); background-image: -khtml-gradient(linear, left top, left bottom, from(#a12525), to(#771c1c)); background-image: -moz-linear-gradient(top, #a12525, #771c1c); background-image: -ms-linear-gradient(top, #a12525, #771c1c); background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #a12525), color-stop(100%, #771c1c)); background-image: -webkit-linear-gradient(top, #a12525, #771c1c); background-image: -o-linear-gradient(top, #a12525, #771c1c); background-image: linear-gradient(#a12525, #771c1c); border-color: #771c1c #771c1c hsl(0, 62%, 26.5%); color: #fff !important; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.16); -webkit-font-smoothing: antialiased; }
