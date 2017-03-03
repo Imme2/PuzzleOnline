@@ -10,7 +10,7 @@ var root = "resources/temporal/";
 
 function agregarImagenes(){
 	var vistaImagenes = document.getElementById('vista-seleccion-imagen');
-	for (var j = 1; j <= 16; j++){
+	for (var j = 1; j < 16; j++){
 
 		vistaImagenes.innerHTML += "<img src='" + root + j + ".jpg'" + 
 							" onclick='cambiarVista(\"vista-seleccion-imagen\",\"vista-juego\");"+
@@ -76,7 +76,7 @@ function startSlider(imageURL, sizeOfBoard){
 	setBoard();
 
 
-	img = new Image();
+	img = new Image(400,400);
 	img.src = imageURL;
 	img.addEventListener('load', drawTiles, false);
 
@@ -160,14 +160,20 @@ function checkSolved() {
 
 // Funcion que dibuja el tablero en realidad.
 function drawTiles() {
+	// These variables give us a conversion in order to properly resize images.
+	var widthSize = img.width / tileCount;
+	var heightSize = img.height / tileCount; 
 	canvas.clearRect ( 0 , 0 , boardSize , boardSize );
 	for (var i = 0; i < tileCount; ++i) {
 		for (var j = 0; j < tileCount; ++j) {
 			var x = boardParts[i][j].x;
 			var y = boardParts[i][j].y;
 			if(i != emptyLoc.x || j != emptyLoc.y || solved == true) {
-				canvas.drawImage(img, x * tileSize, y * tileSize, tileSize, tileSize,
-				i * tileSize, j * tileSize, tileSize, tileSize);
+				canvas.drawImage(img,
+					 x * tileSize, y * tileSize,	// Where to start (in image).
+					 widthSize, heightSize,			// area (w*h) from the source image.
+					 i * tileSize, j * tileSize, 	// where to place it
+					 tileSize, tileSize);			// with this size.
 			}
 		}
 	}
@@ -177,10 +183,17 @@ function drawTiles() {
 // Colocar Hint y quitarlo cuando sea presionado un boton.
 function colocarHint(){
 	// Solo dibujamos toda la imagen.
-	canvas.drawImage(img,0,0);
+	canvas.drawImage(img,0,0,img.width,img.height,0,0,400,400);
+
 }
 
 function quitarHint(){
 	// Redibujamos las tiles.
 	drawTiles();
+}
+
+// Funcion para guardar el estado del juego en un string.
+
+function guardarJuego(){
+
 }
