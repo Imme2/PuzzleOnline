@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Epistolar';
+    src: url('../fonts/Epistolar.eot');
+    src: url('../fonts/Epistolar.eot') format('embedded-opentype'),
+         url('../fonts/Epistolar.woff2') format('woff2'),
+         url('../fonts/Epistolar.woff') format('woff'),
+         url('../fonts/Epistolar.ttf') format('truetype'),
+         url('../fonts/Epistolar.svg#Epistolar') format('svg');
+}
+
+.epistolar{
+	font-family:"Epistolar";
+}

@@ -1,0 +1,99 @@
+/* Establecemos los tama;os de html y body como el 100% de la pantalla */
+
+html, body{
+  height: 100%;
+  background: #f3120c;
+}
+
+/* 
+
+Tama;o  y caracteristicas 
+  del header 
+
+*/
+
+.header{
+  height:25%;
+  background: #cc6601;
+  padding-top: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.header_image{
+  height: 100%;
+  background-image: url("../img/texturaFondo.jpg");
+  padding-top: 5px
+}
+
+/* codigo para centrar nuestras imagenes */
+
+.center_image{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* color del cuerpo de la pagina: */
+
+.body_container{
+  background: #f3120c;
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-left: 30px;
+  margin: 0;
+  height: 75%;
+}
+
+/* contenedor del juego con el fondo negro */
+
+.game_info_container{
+  background: black;
+  padding: 100px 100px 50px 50px;
+  margin: 0;
+
+}
+
+/* contenedor del juego, que tiene como fondo la textura */
+
+.game_container{
+  text-align:center;
+  background-image: url("../img/texturaFondo2.jpg");
+  display:inline-block;
+  min-width: 375px;
+  min-height: 375px;
+  max-width: 800px;
+}
+
+/* codigo para que nuestras imagenes se reescalen apropiadamente */
+
+.fit-image {
+  max-height: 95%;
+  width: auto;
+}
+
+
+/* vistas que son escondidas al principio */
+
+#vista-juego, #vista-seleccion-imagen, #vista-resumir-juego, #vista-menu-inicial, #vista-seleccion-imagen-niveles {
+  display: none;
+}
+
+/* Letra del Menu inicial */
+
+.letra-menu{
+  padding-top: 15px;
+  padding-bottom: 15px;
+  cursor:pointer;
+}
+
+/* */
+
+.center-niveles{
+  position:absolute;
+  top:50%;
+  color: "white"; 
+  left:85%; 
+  padding:10px;
+}
+
