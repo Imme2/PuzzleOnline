@@ -12,10 +12,15 @@
 
     <title>Archivo Nacional Arte Rupestre</title>
 
+    <!-- script de w3 para incluir html-->
+    <script src="www/js/w3data.js"></script>
+
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="www/w3cssframework/w3.css">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -130,6 +135,12 @@
             </div>
           </div>
 
+
+          <div id="vista-textos-explicativos" class="vista-textos-explicativos" w3-include-html="www/html/mapa.html">
+            <!-- esto se llena dinamicamente con javascript -->
+          </div>
+
+
         </div>
 
         <!-- Parte de la vista de seleccion-imagen -->
@@ -149,6 +160,9 @@
       </div>
     </div>
 
+
+    <!-- Incluimos el html que esta en otros files -->
+    <script> w3IncludeHTML(); </script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
