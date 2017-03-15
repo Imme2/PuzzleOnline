@@ -7,6 +7,21 @@
          url('../fonts/Epistolar.ttf') format('truetype'),
          url('../fonts/Epistolar.svg#Epistolar') format('svg');
 }
+@font-face {
+	font-family: 'Century Gothic B';
+	src: url('../fonts/CenturyGothic-Bold.eot');
+	src: url('../fonts/CenturyGothic-Bold.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/CenturyGothic-Bold.woff2') format('woff2'),
+		url('../fonts/CenturyGothic-Bold.woff') format('woff'),
+		url('../fonts/CenturyGothic-Bold.ttf') format('truetype'),
+		url('../fonts/CenturyGothic-Bold.svg#CenturyGothic-Bold') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+
+.century-gothic-b{
+	font-family: "Century Gothic B"
+}
 
 .epistolar{
 	font-family:"Epistolar";

@@ -3,6 +3,7 @@
 html, body{
   height: 100%;
   background: #f3120c;
+  min-width: 100%;
 }
 
 /* 
@@ -79,6 +80,10 @@ Tama;o  y caracteristicas
   display: none;
 }
 
+#vista-inicial{
+  display: none;
+}
+
 /* Letra del Menu inicial */
 
 .letra-menu{
@@ -97,3 +102,11 @@ Tama;o  y caracteristicas
   padding:10px;
 }
 
+
+
+.backgroundraro{
+  background: url('../img/representaciones/amolador/amolador.jpg') no repeat;
+  background-size: cover; 
+  background-position:center; 
+  position:relative;
+}
