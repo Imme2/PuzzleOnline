@@ -33,19 +33,3 @@ function cambiarNivel(numero){
 	}
 	nivel = numero;
 }
-
-/* Funcion TEMPORAL *ihopeso que pone las imagenes en una tabla */
-
-var root = "resources/temporal/";
-
-function agregarImagenes(){
-	var vistaImagenes = document.getElementById('vista-seleccion-imagen');
-	for (var j = 1; j < 15; j++){
-
-		vistaImagenes.innerHTML += "<img src='" + root + j + ".jpg'" + 
-							" onclick='cambiarVista(\"vista-seleccion-imagen\",\"vista-juego\");"+
-							"startSlider(\"" + root + j + ".jpg\",4);'" + 
-							"width='150' height='150'>";
-		vistaImagenes.innerHTML += "</img>\n";
-	}
-}

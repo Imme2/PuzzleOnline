@@ -18,12 +18,19 @@ var canvas,boardSize, tileCount, tileSize;
 var clickLoc, emptyLoc, solved, boardParts, img;
 var movimientos = 0;
 
+// Funcion que hace un r
+// 
+
+
+
 // Funcion que empieza el juego.
 // @imageURL: Nos da el url de la imagen que vamos a usar
 // @sizeOfBoard: nos da el tama;o del tablero (6 para 6x6, 3 para 3x3, etc)
 function startSlider(imageURL, sizeOfBoard){
 	canvas = document.getElementById("canvas-juego").getContext("2d");
 	boardSize = document.getElementById('canvas-juego').width;
+
+	//imageURL = resizeImage(imageURL,400,400);
 
 	if (sizeOfBoard > 20){
 		// Esto es muy grande, dejemoslo en 10x10
@@ -47,7 +54,7 @@ function startSlider(imageURL, sizeOfBoard){
 	setBoard();
 
 
-	img = new Image(400,400);
+	img = new Image;
 	img.src = imageURL;
 	img.addEventListener('load', drawTiles, false);
 
@@ -134,6 +141,9 @@ function drawTiles() {
 	// These variables give us a conversion in order to properly resize images.
 	var widthSize = img.width / tileCount;
 	var heightSize = img.height / tileCount; 
+	//alert("width imagen es: " + img.width + " height image es" 
+	//		+ img.height + " widthSize " + widthSize
+	//		+ " heightSize" + heightSize + "\n tama;o es " + tileCount);
 	canvas.clearRect ( 0 , 0 , boardSize , boardSize );
 	for (var i = 0; i < tileCount; ++i) {
 		for (var j = 0; j < tileCount; ++j) {
@@ -141,14 +151,14 @@ function drawTiles() {
 			var y = boardParts[i][j].y;
 			if(i != emptyLoc.x || j != emptyLoc.y || solved == true) {
 				canvas.drawImage(img,
-					 x * tileSize, y * tileSize,	// Where to start (in image).
+					 x * widthSize, y * heightSize,	// Where to start (in image).
 					 widthSize, heightSize,			// area (w*h) from the source image.
 					 i * tileSize, j * tileSize, 	// where to place it
 					 tileSize, tileSize);			// with this size.
 			}
 		}
 	}
-	document.getElementById("movimientos").innerHTML = "Movimientos: " + movimientos
+	document.getElementById("movimientos").innerHTML = "Movimientos: " + movimientos;
 }
 
 // Colocar Hint y quitarlo cuando sea presionado un boton.
@@ -163,8 +173,19 @@ function quitarHint(){
 	drawTiles();
 }
 
+// Funcion para resumir el juego.
+
+function resumirJuego(juego){
+
+}
+
+
 // Funcion para guardar el estado del juego en un string.
 
 function guardarJuego(){
-
+	stringGuardar = "";
+	stringGuardar += nivel + " ";
+	stringGuardar += img.src;
+	stringGuardar += "hola";
+	alert(stringGuardar)
 }
