@@ -12,10 +12,15 @@
 
     <title>Archivo Nacional Arte Rupestre</title>
 
+    <!-- script de w3 para incluir html-->
+    <script src="www/js/w3data.js"></script>
+
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="www/w3cssframework/w3.css">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -55,11 +60,11 @@
           <!-- vista inicial, que se encuentra al iniciar la pagina -->
           <div id = "vista-inicial" class="vista-inicial">
             <div id="header_vista_inicial" style="background:red; padding-left:50px; padding-right:50px;">
-              <font size="4" color ="white" class="epistolar"> PUZZLE DESLIZANTE EDUCATIVO</font>
+              <font size="4" color ="white" class="epistolar not-text"> PUZZLE DESLIZANTE EDUCATIVO</font>
             </div>
-            <div style="padding-top:60px"><b><font size="6" color="#f3af04" class="bold">manifestaciones</font></b></div>
+            <div style="padding-top:60px"><b><font size="6" color="#f3af04" class="bold not-text">manifestaciones</font></b></div>
             <div><img src="www/img/rupestres.png"></div>
-            <div style="padding-bottom:80px"><font size="6" color="black" class="epistolar"> VENEZOLANAS </font></div>
+            <div style="padding-bottom:80px" class="no-text"><font size="6" color="black" class="epistolar"> VENEZOLANAS </font></div>
           </div>
           
 
@@ -67,7 +72,7 @@
             <font size="5" color="black">
             <div class="letra-menu">Introduccion</div>
             <div class="letra-menu" onClick="">Instrucciones</div>
-            <div class="letra-menu" onClick="cambiarVista('vista-menu-inicial','vista-seleccion-imagen');agregarImagenes();">Las Manifestaciones</div>
+            <div class="letra-menu" onClick="cambiarVista('vista-menu-inicial','vista-seleccion-imagen');">Las Manifestaciones</div>
             <div class="letra-menu" onClick="">Resumir Partida</div>
             <div class="letra-menu" onClick="cambiarVista('vista-menu-inicial','vista-inicial')">Salir</div></a>
             </font>
@@ -86,7 +91,7 @@
             <!-- Los formularios para recoger el texto y el boton para enviar el texto -->
 
             <div id = "formulario-resumir-juego" class= "form-group">
-                <label for="estado-juego"> <p> Pegue aqui el texto dado cuando guardo su juego: </p> </label>
+                <label for="estado-juego"> <p unselectable="on" class="not-text"> Pegue aqui el texto dado cuando guardo su juego: </p> </label>
                 <input type="text" class="form-control" id="estado-juego">
             </div> 
             <div id = "boton-resumir-juego">
@@ -96,17 +101,13 @@
 
           <!-- Vista para seleccionar una manifestacion -->
 
-          <div id="vista-seleccion-imagen" class="vista-seleccion-imagen">
-            <b><p><font size="3" color="black">escoge</font>
-            <font size="2" color="black"> la 
-            <font size="5" color="#f3af04"> manifestación</font></p></b>
-            <!-- TODO: Move this to Javascript to autogenerate it -->
+          <div id="vista-seleccion-imagen" class="vista-seleccion-imagen not-text" unselectable="on">
+            <b><p><font size="3" color="black" unselectable="on" class="not-text">escoge</font>
+            <font size="2" color="black" unselectable="on" class="not-text"> la 
+            <font size="5" color="#f3af04" unselectable="on" class="not-text"> manifestación</font></p></b>
+            <div id="imagenes" w3-include-html="www/html/imagenes.html"></div>
           </div>
 
-          <!-- TODO: Finish proper seleccion-tamano
-          <div id="vista-seleccion-tamano">
-            <p>Seleccione un tamaño</p>
-          </div> -->
 
           <!-- Divisor que contiene al canvas del juego y 
                todo lo que se muestra en el -->
@@ -130,25 +131,34 @@
             </div>
           </div>
 
+
+          <div id="vista-textos-explicativos" class="vista-textos-explicativos" w3-include-html="www/html/mapa.html">
+            <!-- esto se llena dinamicamente con javascript -->
+          </div>
+
+
         </div>
 
         <!-- Parte de la vista de seleccion-imagen -->
         <div id="vista-seleccion-imagen-niveles" class="vista-seleccion-imagen center-niveles">
           <font size="3" color="white"><b>
-          <p>niveles</p>
-          <div id="nivel-3" style="background:white;color:black" onClick="cambiarNivel(3);">3x3</div>
-          <div id="nivel-4" onClick="cambiarNivel(4);">4x4</div>
-          <div id="nivel-5" onClick="cambiarNivel(5);">5x5</div>
-          <div id="nivel-6" onClick="cambiarNivel(6);">6x6</div></b></font>
+          <p unselectable="on" class="not-text">niveles</p>
+          <div id="nivel-3" class="link" style="background:white;color:black" unselectable="on" onClick="cambiarNivel(3);">3x3</div>
+          <div id="nivel-4" unselectable="on" class="link" onClick="cambiarNivel(4);">4x4</div>
+          <div id="nivel-5" unselectable="on" class="link" onClick="cambiarNivel(5);">5x5</div>
+          <div id="nivel-6" unselectable="on" class="link" onClick="cambiarNivel(6);">6x6</div></b></font>
         </div>
         
 
         <footer style="padding-top:20px">
-          <font size="1" color="white"> Todos los derechos reservados, FUNDABITAT, 2017</font>
+          <font size="1" color="white" class="not-text" unselectable="on"> Todos los derechos reservados, FUNDABITAT, 2017</font>
         </footer>
       </div>
     </div>
 
+
+    <!-- Incluimos el html que esta en otros files -->
+    <script> w3IncludeHTML(); </script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
