@@ -99,3 +99,30 @@ Tama;o  y caracteristicas
   padding:10px;
 }
 
+/* Esto hace que todo lo de la clase link
+   transforme el cursor correctamente a
+   lo que se esperaria (una manito)
+*/
+
+*.link{
+  cursor: pointer;
+}
+
+/* Esto hace que el puntero en cosas de texto sea normal */
+
+*.not-text{
+  cursor: default;
+}
+
+/* hace que todo lo que tenga la clase unselectable
+    sea en verdad unselectable (es necesario por que
+    varios browsers hacen varias cosas diferentes)
+*/
+
+[unselectable=on]{
+   -moz-user-select: none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
