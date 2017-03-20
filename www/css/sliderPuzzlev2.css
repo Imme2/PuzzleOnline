@@ -62,7 +62,7 @@ Tama;o  y caracteristicas
   background-image: url("../img/texturaFondo2.jpg");
   display:inline-block;
   min-width: 375px;
-  min-height: 375px;
+  min-height: 400px;
   max-width: 800px;
 }
 
@@ -80,6 +80,11 @@ Tama;o  y caracteristicas
   display: none;
 }
 
+/* Mas vistas que son escondidas */
+
+.vista-textos-explicativos{
+  display: none;
+}
 
 /* Letra del Menu inicial */
 
