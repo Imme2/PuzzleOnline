@@ -17,7 +17,7 @@ Codigo del juego
 var canvas,boardSize, tileCount, tileSize;
 var clickLoc, emptyLoc, solved, boardParts, img;
 var movimientos = 0;
-
+var objetoCanvas = document.getElementById("canvas-juego");
 
 // Funcion que empieza el juego.
 // @imageURL: Nos da el url de la imagen que vamos a usar
@@ -84,10 +84,14 @@ drawTiles();
 }; */
 
 // Funciones que registran el mouse
+
+
 document.getElementById('canvas-juego').onmousemove = function(e) {
-	clickLoc.x = Math.floor((e.pageX - this.offsetLeft) / tileSize);
-	clickLoc.y = Math.floor((e.pageY - this.offsetTop) / tileSize);
+	rect = objetoCanvas.getBoundingClientRect();
+	clickLoc.x = Math.floor((e.clientX - rect.left) / tileSize);
+	clickLoc.y = Math.floor((e.clientY - rect.top) / tileSize);
 };
+
 
 
 document.getElementById('canvas-juego').onclick = function() {
@@ -99,6 +103,8 @@ document.getElementById('canvas-juego').onclick = function() {
 		setTimeout(function() {alert("You solved it!");}, 500);
 	}
 };
+
+
 
 
 
