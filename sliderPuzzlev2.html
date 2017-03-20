@@ -50,35 +50,80 @@
 
     <!-- Container donde esta todo el juego -->
     <div id="body-container" class="body_container" style="Text-align:center">
+
+      <!-- Se usan varias vistas y un atributo de CSS (display:none)
+      para cambiar entre ellas -->
+
       <!-- container donde se tiene el fondo negro --> 
       <div id="game-info-container" class="game_info_container">
-        <!-- Aqui tenemos la textura y el juego principal -->
-        <div id="container-juego" class="game_container">
-          <!-- Se usan varias vistas y un atributo de CSS (display:none)
-           para cambiar entre ellas -->
 
-          <!-- vista inicial, que se encuentra al iniciar la pagina -->
-          <div id = "vista-inicial" class="vista-inicial">
-            <div id="header_vista_inicial" style="background:red; padding-left:50px; padding-right:50px;">
-              <font size="4" color ="white" class="epistolar not-text"> PUZZLE DESLIZANTE EDUCATIVO</font>
+        <!-- Se usan espacios vacios (&nbsp;) para hacer que ciertos divisores aparezcan -->
+
+        <div id = "vista-inicial" class="vista-inicial w3-row">
+            <div id="spacing" class="w3-col s4 m4 l4 not-text" unselectable="on">&nbsp;</div>
+            <div id="container-falso" class="game_container w3-col s4 m4 l4">
+              <div id="header_vista_inicial" style="background:red; padding-left:50px; padding-right:50px;">
+                <font size="4" color ="white" class="epistolar not-text"> PUZZLE DESLIZANTE EDUCATIVO</font>
+              </div>
+              <div style="padding-top:60px"><b><font size="6" color="#f3af04" class="bold not-text">manifestaciones</font></b></div>
+              <div><img src="www/img/rupestres.png"></div>
+              <div style="padding-bottom:80px" class="not-text"><font size="6" color="black" class="epistolar"> VENEZOLANAS </font></div>
             </div>
-            <div style="padding-top:60px"><b><font size="6" color="#f3af04" class="bold not-text">manifestaciones</font></b></div>
-            <div><img src="www/img/rupestres.png"></div>
-            <div style="padding-bottom:80px" class="no-text"><font size="6" color="black" class="epistolar"> VENEZOLANAS </font></div>
-          </div>
-          
+         </div>
 
-          <div id = "vista-menu-inicial" class="vista-menu-inicial epistolar">
-            <font size="5" color="black">
-            <div class="letra-menu">Introduccion</div>
-            <div class="letra-menu" onClick="">Instrucciones</div>
-            <div class="letra-menu" onClick="cambiarVista('vista-menu-inicial','vista-seleccion-imagen');">Las Manifestaciones</div>
-            <div class="letra-menu" onClick="">Resumir Partida</div>
-            <div class="letra-menu" onClick="cambiarVista('vista-menu-inicial','vista-inicial')">Salir</div></a>
+
+
+        <!-- Menu-inicial -->
+        <div id="vista-menu-inicial" class="vista-menu-inicial epistolar w3-row">
+          <div class="w3-col s4 m4 l4 text-right">
+            <font size="5" color="white">
+              <div class="letra-menu">Introduccion</div>
+              <div class="letra-menu" onClick="">Instrucciones</div>
+              <div class="letra-menu" onClick="cambiarVista('vista-menu-inicial','vista-seleccion-imagen');">Las Manifestaciones</div>
+              <div class="letra-menu" onClick="">Resumir Partida</div>
+              <div class="letra-menu" onClick="cambiarVista('vista-menu-inicial','vista-inicial')">Salir</div></a>
             </font>
           </div>
+          <div id="container-menu-inicial" class="game_container w3-col s4 m4 l4">
+          </div>
+          <div id="spacing" class="w3-col s3 m3 l3 not-text" unselectable="on">&nbsp;</div>
+        </div>
 
 
+        <!-- vista de seleccion imagenes -->
+        <div id="vista-seleccion-imagen" class="vista-seleccion-imagen not-text w3-row" unselectable="on">
+          <div id="spacing" class="w3-col s2 m2 l2 not-text" unselectable="on">&nbsp;</div>
+          <div id="container-seleccion-imagen" class="game_container w3-col s8 m8 l8">
+            <b><p><font size="3" color="black" unselectable="on" class="not-text">escoge</font>
+            <font size="2" color="black" unselectable="on" class="not-text"> la 
+            <font size="5" color="#f3af04" unselectable="on" class="not-text"> manifestación</font></p></b>
+            <div id="imagenes" w3-include-html="www/html/imagenes.html"></div>
+          </div>
+          <!-- Parte de la vista de seleccion-imagen, seleccion niveles -->
+          <div id="vista-seleccion-imagen-niveles" class="vista-seleccion-imagen  w3-col s2 m2 l2 ">
+            <font size="3" color="white"><b>
+            <p unselectable="on" class="not-text">niveles</p>
+            <div id="nivel-3" class="link" style="background:white;color:black" unselectable="on" onClick="cambiarNivel(3);">3x3</div>
+            <div id="nivel-4" unselectable="on" class="link" onClick="cambiarNivel(4);">4x4</div>
+            <div id="nivel-5" unselectable="on" class="link" onClick="cambiarNivel(5);">5x5</div>
+            <div id="nivel-6" unselectable="on" class="link" onClick="cambiarNivel(6);">6x6</div></b></font>
+          </div>
+        </div>
+
+        <div id="vista-textos-explicativos" class="vista-textos-explicativos">
+          <div id="container-con-textura" class="game_container">
+            <div id="textos-explicativos" w3-include-html="www/html/mapa.html">
+              <!-- esto se llena dinamicamente con javascript -->
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- Aqui tenemos la textura y el juego principal -->
+        <div id="container-juego" class="game_container vista-juego">
+
+          <!-- vista inicial, que se encuentra al iniciar la pagina -->
 
           <!-- Vista para resumir juegos guardados -->
 
@@ -101,12 +146,6 @@
 
           <!-- Vista para seleccionar una manifestacion -->
 
-          <div id="vista-seleccion-imagen" class="vista-seleccion-imagen not-text" unselectable="on">
-            <b><p><font size="3" color="black" unselectable="on" class="not-text">escoge</font>
-            <font size="2" color="black" unselectable="on" class="not-text"> la 
-            <font size="5" color="#f3af04" unselectable="on" class="not-text"> manifestación</font></p></b>
-            <div id="imagenes" w3-include-html="www/html/imagenes.html"></div>
-          </div>
 
 
           <!-- Divisor que contiene al canvas del juego y 
@@ -132,22 +171,11 @@
           </div>
 
 
-          <div id="vista-textos-explicativos" class="vista-textos-explicativos" w3-include-html="www/html/mapa.html">
-            <!-- esto se llena dinamicamente con javascript -->
-          </div>
 
 
         </div>
 
-        <!-- Parte de la vista de seleccion-imagen -->
-        <div id="vista-seleccion-imagen-niveles" class="vista-seleccion-imagen center-niveles">
-          <font size="3" color="white"><b>
-          <p unselectable="on" class="not-text">niveles</p>
-          <div id="nivel-3" class="link" style="background:white;color:black" unselectable="on" onClick="cambiarNivel(3);">3x3</div>
-          <div id="nivel-4" unselectable="on" class="link" onClick="cambiarNivel(4);">4x4</div>
-          <div id="nivel-5" unselectable="on" class="link" onClick="cambiarNivel(5);">5x5</div>
-          <div id="nivel-6" unselectable="on" class="link" onClick="cambiarNivel(6);">6x6</div></b></font>
-        </div>
+
         
 
         <footer style="padding-top:20px">

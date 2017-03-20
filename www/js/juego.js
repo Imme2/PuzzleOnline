@@ -18,10 +18,6 @@ var canvas,boardSize, tileCount, tileSize;
 var clickLoc, emptyLoc, solved, boardParts, img;
 var movimientos = 0;
 
-// Funcion que hace un r
-// 
-
-
 
 // Funcion que empieza el juego.
 // @imageURL: Nos da el url de la imagen que vamos a usar

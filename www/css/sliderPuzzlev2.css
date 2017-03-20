@@ -76,7 +76,7 @@ Tama;o  y caracteristicas
 
 /* vistas que son escondidas al principio */
 
-#vista-juego, #vista-seleccion-imagen, #vista-resumir-juego, #vista-menu-inicial, #vista-seleccion-imagen-niveles {
+.vista-juego, .vista-seleccion-imagen, .vista-resumir-juego, .vista-menu-inicial, .vista-seleccion-imagen-niveles {
   display: none;
 }
 
