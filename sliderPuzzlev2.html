@@ -43,8 +43,10 @@
   <body>
 
     <div class="header">
-      <div class = "header_image">
-          <img class="center_image fit-image" src="www/img/anarLogo2.gif" height="auto" width="auto">
+      <div class = "header_image" style="text-align:center">
+          <embed class="center_image fit-image" src="www/img/grabado-izquierdo2.html"></embed>
+          <img class="center_image fit-image" src="www/img/anarLogo2.gif"></img>
+          <embed class="center_image fit-image" src="www/img/grabado-derecho2.html"></embed>
       </div> 
     </div>
 
@@ -92,11 +94,19 @@
         <!-- Vista para seleccionar una manifestacion -->
         <!-- vista de seleccion imagenes -->
         <div id="vista-seleccion-imagen" class="vista-seleccion-imagen not-text w3-row" unselectable="on">
+          <div id="texto-escoge-manifestacion" class="w3-row">
+            <div id="spacing" class="w3-col s2 m2 l2 not-text" unselectable="on">&nbsp;</div>
+            <div id="texto" class="w3-col s8 m8 l8">
+              <b><p><font size="3" color="white" unselectable="on" class="not-text">escoge</font>
+              <font size="2" color="white" unselectable="on" class="not-text"> la </font>
+              <font size="5" color="#f3af04" unselectable="on" class="not-text"> manifestación</font></p></b>
+            </div>
+
+
+          </div>
           <div id="spacing" class="w3-col s2 m2 l2 not-text" unselectable="on">&nbsp;</div>
           <div id="container-seleccion-imagen" class="game_container w3-col s8 m8 l8">
-            <b><p><font size="3" color="black" unselectable="on" class="not-text">escoge</font>
-            <font size="2" color="black" unselectable="on" class="not-text"> la </font>
-            <font size="5" color="#f3af04" unselectable="on" class="not-text"> manifestación</font></p></b>
+
             <div id="imagenes" w3-include-html="www/html/imagenes.html"></div>
           </div>
 
