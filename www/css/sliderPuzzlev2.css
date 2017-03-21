@@ -6,6 +6,7 @@ html, body{
   min-width: 100%;
 }
 
+
 /* 
 
 Tama;o  y caracteristicas 
@@ -30,9 +31,12 @@ Tama;o  y caracteristicas
 /* codigo para centrar nuestras imagenes */
 
 .center_image{
-  display: block;
+  display: inline-block;
   margin-left: auto;
   margin-right: auto;
+  vertical-align: middle;
+  max-width: calc(100% / 3 - 26px);
+  height: auto;
 }
 
 /* color del cuerpo de la pagina: */
@@ -50,8 +54,9 @@ Tama;o  y caracteristicas
 
 .game_info_container{
   background: black;
-  padding: 100px 100px 50px 50px;
+  padding: 30px 30px 50px 50px;
   margin: 0;
+  min-height: 100%
 
 }
 
@@ -102,6 +107,14 @@ Tama;o  y caracteristicas
   color: "white"; 
   left:85%; 
   padding:10px;
+}
+/* Boton de guardar en el juego */
+
+.boton-guardar{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  border-radius:8px;
+  background-color:#cc6500;
+  border: 1px solid black;
 }
 
 /* Esto hace que todo lo de la clase link
