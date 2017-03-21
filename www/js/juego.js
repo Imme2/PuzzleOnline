@@ -26,9 +26,14 @@ function startSlider(imageURL, sizeOfBoard){
 	canvas = document.getElementById("canvas-juego").getContext("2d");
 	boardSize = document.getElementById('canvas-juego').width;
 
+	// No es necesario que hagamos un resize, nos encargamos de
+	//  el tamaño al dibujar.
 	//imageURL = resizeImage(imageURL,400,400);
 
-	if (sizeOfBoard > 20){
+	//Cambiamos el link a la imagen original en la esquina.
+	document.getElementById("imagen-original").src = imageURL;
+
+	if (sizeOfBoard > 11){
 		// Esto es muy grande, dejemoslo en 10x10
 		sizeOfBoard = 10
 	}
@@ -90,6 +95,8 @@ document.getElementById('canvas-juego').onmousemove = function(e) {
 	rect = objetoCanvas.getBoundingClientRect();
 	clickLoc.x = Math.floor((e.clientX - rect.left) / tileSize);
 	clickLoc.y = Math.floor((e.clientY - rect.top) / tileSize);
+	a = e.clientX - rect.left
+	b = e.clientY - rect.top
 };
 
 
@@ -160,7 +167,7 @@ function drawTiles() {
 			}
 		}
 	}
-	document.getElementById("movimientos").innerHTML = "Movimientos: " + movimientos;
+	document.getElementById("movimientos").innerHTML = movimientos;
 }
 
 // Colocar Hint y quitarlo cuando sea presionado un boton.
@@ -168,12 +175,25 @@ function colocarHint(){
 	// Solo dibujamos toda la imagen.
 	canvas.drawImage(img,0,0,img.width,img.height,0,0,400,400);
 
-}
+};
 
 function quitarHint(){
 	// Redibujamos las tiles.
 	drawTiles();
-}
+};
+
+// Hacemos el bind de los hints a el boton
+
+document.getElementById("boton-hint").onmousedown = function(){
+	colocarHint();
+};
+document.getElementById("boton-hint").onmouseup = function(){
+	quitarHint();
+};
+document.getElementById("boton-hint").onmouseleave = function(){
+	quitarHint();
+};
+
 
 // Funcion para resumir el juego.
 
