@@ -22,31 +22,27 @@
 
     <link rel="stylesheet" href="www/w3cssframework/w3.css">
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="www/css/fonts.css" rel="stylesheet">
     <link href="www/css/sliderPuzzlev2.css" rel="stylesheet">
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
     <script src="js/bootstrap.min.js"></script>
   </head>
   <body>
 
     <div class="header">
       <div class = "header_image" style="text-align:center">
+          <!-- Se usa flash temporalmente porque no se encontro otra manera. --> 
+          <object class="center_image fit-image">
+            <param name="grabadoIzq" value="www/img/grabado-izquierdo2.swf">
+            <embed src="www/img/grabado-izquierdo2.swf" class="fit-image" wmode="transparent"> </embed>
+          </object>
           <embed class="center_image fit-image" src="www/img/grabado-izquierdo2.html"></embed>
           <img class="center_image fit-image" src="www/img/anarLogo2.gif"></img>
-          <embed class="center_image fit-image" src="www/img/grabado-derecho2.html"></embed>
+          <object class="center_image fit-image">
+            <param name="grabadoDer" value="www/img/grabado-derecho2.swf">
+            <embed src="www/img/grabado-derecho2.swf" class="fit-image" wmode="transparent"> </embed>
+          </object>
       </div> 
     </div>
 
@@ -92,7 +88,11 @@
         </div>
 
         <!-- Vista para seleccionar una manifestacion -->
-        <!-- vista de seleccion imagenes -->
+        <!-- 
+
+          Vista de seleccion imagenes 
+          Aqui se muestran las imagenes de todas las manifestaciones.
+        -->
         <div id="vista-seleccion-imagen" class="vista-seleccion-imagen not-text w3-row" unselectable="on">
           <div id="texto-escoge-manifestacion" class="w3-row">
             <div id="spacing" class="w3-col s2 m2 l2 not-text" unselectable="on">&nbsp;</div>
@@ -110,7 +110,11 @@
             <div id="imagenes" w3-include-html="www/html/imagenes.html"></div>
           </div>
 
-          <!-- Parte de la vista de seleccion-imagen, seleccion niveles -->
+          <!-- 
+          
+              Parte de la vista de seleccion-imagen, seleccion niveles 
+          
+          -->
           <div id="vista-seleccion-imagen-niveles" class="vista-seleccion-imagen  w3-col s2 m2 l2 ">
             <font size="3" color="white"><b>
             <p unselectable="on" class="not-text">niveles</p>
@@ -122,13 +126,14 @@
         </div>
 
         <!-- Vista donde se muestran los textos explicativos
-              (esta vista se llena con javascript htmls 
-              pre-hechos)-->
+              (esta vista se llena con javascript y htmls 
+              pre-hechos)
+        -->
         <div id="vista-textos-explicativos" class="vista-textos-explicativos">
-          <div id="container-con-textura" class="game_container">
-            <div id="textos-explicativos" w3-include-html="www/html/mapa.html">
-              <!-- esto se llena dinamicamente con javascript -->
-            </div>
+          <div id="container-con-textura" class="game_container" style="width:100%;">
+            <div id="textos-explicativos-espanol" w3-include-html="www/html/textSpanish.html"></div>
+            <div id="textos-explicativos-ingles" w3-include-html="www/html/textEnglish.html"></div>
+            <!-- esto se llena dinamicamente con javascript -->
           </div>
         </div>
 
@@ -186,7 +191,7 @@
                 <img src="www/img/pausa.png" width="80" height="70">
               </div>              
               <div id="boton-hint" class="w3-col m6 l6 s6" style="padding-top:8%;">
-                <span style="font-size:40px;color:black" id="boton-hint" class="glyphicon glyphicon-question-sign"></span>
+                <span style="font-size:40px;color:black" id="boton-hint" class="not-text glyphicon glyphicon-question-sign"></span>
               </div>
               <!--<button type="button" onmousedown= "colocarHint();" onmouseup="quitarHint();" onmouseleave="quitarHint();" class="btn btn-lg btn-custom">-->              
 
@@ -195,7 +200,20 @@
         </div>
 
         <footer style="padding-top:20px">
-          <font size="1" color="white" class="not-text" unselectable="on"> Todos los derechos reservados, FUNDABITAT, 2017</font>
+          <div class="left-align" style="text-align:left;display:inline-block;">
+            <div id="boton-espanol" style="display:inline-block">
+              <img id="spainflag"  class="boton" src="www/img/spainflag.png" height="20" width="auto">
+            </div>
+            <div id="boton-ingles" style="display:inline-block">
+              <img id="ukflag" class="boton"  src="www/img/ukflag.png" height="20" width="auto">
+            </div>
+          </div>
+          <div class="center-text" style="text-align:center;display:inline-block;margin-left:10%;margin-right:10%;">
+            <font size="1" color="white" class="not-text" unselectable="on"> Todos los derechos reservados, FUNDABITAT, 2017</font>
+          </div>
+          <div class="align-right" style="text-align:right;display:inline-block;">
+            <img src="www/img/test.png">
+          </div>
         </footer>
       </div>
     </div>
@@ -210,7 +228,7 @@
     <!-- Jquery -->
     <script src="jquery-3.1.1.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
     <!-- script de transiciones -->
     <script src="www/js/transiciones.js"></script>
     <!-- script del juego -->

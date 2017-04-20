@@ -2,7 +2,7 @@ var tablero = document.getElementById("container-juego");
 
 var imagen = "";
 
-var nivel = 4
+var nivel = 3;
 
 /* 
 
@@ -150,9 +150,6 @@ function drawTiles() {
 	// These variables give us a conversion in order to properly resize images.
 	var widthSize = img.width / tileCount;
 	var heightSize = img.height / tileCount; 
-	//alert("width imagen es: " + img.width + " height image es" 
-	//		+ img.height + " widthSize " + widthSize
-	//		+ " heightSize" + heightSize + "\n tama;o es " + tileCount);
 	canvas.clearRect ( 0 , 0 , boardSize , boardSize );
 	for (var i = 0; i < tileCount; ++i) {
 		for (var j = 0; j < tileCount; ++j) {

@@ -1,38 +1,4 @@
 
-/* funcion que hace la primera transicion al hacer click en la
-   el div de la vista inicial */
-
-
-
-$('div.vista-inicial').click(function(){
-	cambiarVista('vista-inicial','vista-menu-inicial');
-});
-
-
-/* Para cada imagen de la seleccion cambiamos la vista 
-  	a su explicacion (siempre idimagen_explicacion es el
-  	id de la explicacion) 
-*/
-
-$('.imagen-seleccion').click(function(){
-	var id = $(this).attr('id');
-	var image = $(this).attr('src');
-	startSlider(image, nivel);
-
-	cambiarVista("vista-seleccion-imagen","vista-textos-explicativos");
-	$("#" + id + "_explicacion").fadeIn('slow',function(){
-		document.getElementById(id + "_explicacion").style.display="initial";
-	});
-});
-
-/*
-	Cuando se hace click en la vista de textos explicativos
-		se debe cambiar la vista.
-*/
-
-$('.vista-textos-explicativos').click(function(){
-	cambiarVista("vista-textos-explicativos","vista-juego");
-});
 
 
 /* Funcion que cambia de vista a vista con un fadein/fadeout */
@@ -61,3 +27,89 @@ function cambiarNivel(numero){
 	}
 	nivel = numero;
 }
+
+
+/* 
+
+	Lenguajes 
+
+*/
+
+// Este es el lenguaje inicial:
+// Lenguajes validos = {spanish, english}
+lenguaje = "spanish";
+
+
+
+function cambiarLenguaje(new_lang){
+	if (lenguaje == new_lang){
+		return 1;
+	}
+
+	$('.'+lenguaje).each(function(){
+		if ($(this).css('display') != "none"){
+			$(this).fadeOut('slow',function(){
+				$(this).css('display','none');
+				idUsado = $(this).attr("id");
+				$("#" + idUsado + "." + new_lang).fadeIn('slow',function(){
+					$(this).css('display','initial');
+				});	
+			});
+		};
+	});
+
+	lenguaje = new_lang;
+}
+
+
+
+
+
+
+
+// Esperamos que la pagina este lista.
+$(document).ready(function(){
+
+
+	/* funcion que hace la primera transicion al hacer click en la
+	   el div de la vista inicial */
+
+	$('div.vista-inicial').click(function(){
+		cambiarVista('vista-inicial','vista-menu-inicial');
+	});
+
+
+	/*
+		Cuando se hace click en la vista de textos explicativos
+			se debe cambiar la vista.
+	*/
+
+	$('.vista-textos-explicativos').click(function(){
+		cambiarVista("vista-textos-explicativos","vista-juego");
+	});
+
+	/* Para cada imagen de la seleccion cambiamos la vista 
+  	a su explicacion (siempre idimagen_explicacion es el
+  	id de la explicacion) 
+	*/
+	$('.imagen-seleccion').click(function(){
+		var id = $(this).attr('id');
+		var image = $(this).attr('src');
+		startSlider(image, nivel);
+
+		cambiarVista("vista-seleccion-imagen","vista-textos-explicativos");
+		$("#" + id + "_explicacion" + "." + lenguaje).fadeIn('slow',function(){
+			$(this).css("display","initial");
+		});
+	});
+
+	/* Para los botones de idioma les damos sus funciones. */
+
+	$('#boton-ingles').click(function(){
+		cambiarLenguaje('english');
+	});
+	$('#boton-espanol').click(function(){
+		cambiarLenguaje('spanish');
+	});
+
+});

@@ -36,7 +36,7 @@ Tama;o  y caracteristicas
   margin-right: auto;
   vertical-align: middle;
   max-width: calc(100% / 3 - 26px);
-  height: auto;
+  height: 95%;
 }
 
 /* color del cuerpo de la pagina: */
@@ -68,13 +68,13 @@ Tama;o  y caracteristicas
   display:inline-block;
   min-width: 375px;
   min-height: 400px;
-  max-width: 800px;
+  max-width: 95%;
 }
 
 /* codigo para que nuestras imagenes se reescalen apropiadamente */
 
 .fit-image {
-  max-height: 95%;
+  height: 95%;
   width: auto;
 }
 
@@ -126,6 +126,7 @@ Tama;o  y caracteristicas
   cursor: pointer;
 }
 
+
 /* Esto hace que el puntero en cosas de texto sea normal */
 
 *.not-text{
@@ -143,4 +144,10 @@ Tama;o  y caracteristicas
    -webkit-user-select: none;
    -ms-user-select: none;
    user-select: none;
+}
+
+/* Clase de botones */
+
+.boton{
+  cursor: pointer;
 }
