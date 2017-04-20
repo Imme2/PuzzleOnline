@@ -41,24 +41,26 @@ lenguaje = "spanish";
 
 
 
-function cambiarLenguaje(new_lang){
-	if (lenguaje == new_lang){
+function cambiarLenguaje(oldLang,newLang){
+
+	if (oldLang == newLang){
 		return 1;
 	}
-
 	$('.'+lenguaje).each(function(){
 		if ($(this).css('display') != "none"){
 			$(this).fadeOut('slow',function(){
 				$(this).css('display','none');
-				idUsado = $(this).attr("id");
-				$("#" + idUsado + "." + new_lang).fadeIn('slow',function(){
+				idUsado = $(this).attr("id")
+				idUsado = idUsado.replace(oldLang,"");
+				$("#" + idUsado + newLang).fadeIn('slow',function(){
 					$(this).css('display','initial');
-				});	
+				});
 			});
 		};
 	});
 
-	lenguaje = new_lang;
+
+
 }
 
 
@@ -70,12 +72,24 @@ function cambiarLenguaje(new_lang){
 // Esperamos que la pagina este lista.
 $(document).ready(function(){
 
-
 	/* funcion que hace la primera transicion al hacer click en la
 	   el div de la vista inicial */
 
 	$('div.vista-inicial').click(function(){
 		cambiarVista('vista-inicial','vista-menu-inicial');
+	});
+
+	/* 
+		Vamos a darle a cada boton del menu-inicial su funcion
+	*/
+	$(".boton-presentacion").click(function(){}); 
+	$(".boton-instrucciones").click(function(){});
+	$(".boton-ver-manifestaciones").click(function(){
+		cambiarVista('vista-menu-inicial','vista-seleccion-imagen');
+	});
+	$(".boton-resumir-partida").click(function(){});
+	$(".boton-salir").click(function(){
+		cambiarVista('vista-menu-inicial','vista-inicial');
 	});
 
 
@@ -98,7 +112,7 @@ $(document).ready(function(){
 		startSlider(image, nivel);
 
 		cambiarVista("vista-seleccion-imagen","vista-textos-explicativos");
-		$("#" + id + "_explicacion" + "." + lenguaje).fadeIn('slow',function(){
+		$("#" + id + "_explicacion" + "-" + lenguaje).fadeIn('slow',function(){
 			$(this).css("display","initial");
 		});
 	});
@@ -106,10 +120,12 @@ $(document).ready(function(){
 	/* Para los botones de idioma les damos sus funciones. */
 
 	$('#boton-ingles').click(function(){
-		cambiarLenguaje('english');
+		cambiarLenguaje(lenguaje,'english');
+		lenguaje = "english";
 	});
 	$('#boton-espanol').click(function(){
-		cambiarLenguaje('spanish');
+		cambiarLenguaje(lenguaje,'spanish');
+		lenguaje = "spanish"
 	});
 
 });

@@ -73,15 +73,25 @@
 
         <!-- Menu-inicial -->
         <div id="vista-menu-inicial" class="vista-menu-inicial epistolar w3-row">
-          <div class="w3-col s4 m4 l4 text-right">
+          <div id="texto-menu-inicial-spanish" class="w3-col s4 m4 l4 text-right spanish">
             <font size="5" color="white">
-              <div class="letra-menu">Introduccion</div>
-              <div class="letra-menu" onClick="">Instrucciones</div>
-              <div class="letra-menu" onClick="cambiarVista('vista-menu-inicial','vista-seleccion-imagen');">Las Manifestaciones</div>
-              <div class="letra-menu" onClick="">Resumir Partida</div>
-              <div class="letra-menu" onClick="cambiarVista('vista-menu-inicial','vista-inicial')">Salir</div></a>
+              <div class="letra-menu boton-presentacion">Presentación</div>
+              <div class="letra-menu boton-instrucciones">Instrucciones</div>
+              <div class="letra-menu boton-ver-manifestaciones">Las Manifestaciones</div>
+              <div class="letra-menu boton-resumir-partida">Resumir Partida</div>
+              <div class="letra-menu boton-salir">Salir</div></a>
             </font>
           </div>
+          <div id="texto-menu-inicial-english" class="w3-col s4 m4 l4 text-right english">
+            <font size="5" color="white">
+              <div class="letra-menu boton-presentacion">Start</div>
+              <div class="letra-menu boton-instrucciones">Instructions</div>
+              <div class="letra-menu boton-ver-manifestaciones" >Manifestations</div>
+              <div class="letra-menu boton-resumir-partida">Load Game</div>
+              <div class="letra-menu boton-salir">Exit</div></a>
+            </font>
+          </div>
+
           <div id="container-menu-inicial" class="game_container w3-col s4 m4 l4">
           </div>
           <div id="spacing" class="w3-col s3 m3 l3 not-text" unselectable="on">&nbsp;</div>

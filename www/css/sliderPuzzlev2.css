@@ -91,6 +91,11 @@ Tama;o  y caracteristicas
   display: none;
 }
 
+
+.english{
+  display: none;
+}
+
 /* Letra del Menu inicial */
 
 .letra-menu{
@@ -151,3 +156,5 @@ Tama;o  y caracteristicas
 .boton{
   cursor: pointer;
 }
+
+
