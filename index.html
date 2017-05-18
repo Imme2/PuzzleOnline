@@ -37,6 +37,7 @@
             <param name="grabadoIzq" value="www/img/grabado-izquierdo2.swf">
             <embed src="www/img/grabado-izquierdo2.swf" class="fit-image" wmode="transparent"> </embed>
           </object>
+          <embed class="center_image fit-image" src="www/img/grabado-izquierdo2.html"></embed>
           <img class="center_image fit-image" src="www/img/anarLogo2.gif"></img>
           <object class="center_image fit-image">
             <param name="grabadoDer" value="www/img/grabado-derecho2.swf">
@@ -71,17 +72,125 @@
 
 
         <!-- Menu-inicial -->
-        <div id="vista-menu-inicial" class="vista-menu-inicial epistolar w3-row">
-          <div class="w3-col s4 m4 l4 text-right">
-            <font size="5" color="white">
-              <div class="letra-menu">Introduccion</div>
-              <div class="letra-menu" onClick="">Instrucciones</div>
-              <div class="letra-menu" onClick="cambiarVista('vista-menu-inicial','vista-seleccion-imagen');">Las Manifestaciones</div>
-              <div class="letra-menu" onClick="">Resumir Partida</div>
-              <div class="letra-menu" onClick="cambiarVista('vista-menu-inicial','vista-inicial')">Salir</div></a>
+        <div id="vista-menu-inicial" class="vista-menu-inicial w3-row">
+          <div id="texto-menu-inicial-spanish" class="epistolar w3-col s4 m4 l4 text-right spanish" style="padding-top:10%;">
+            <font size="4" color="white">
+              <div class="letra-menu boton-introduccion" style="color:red;">Introducción</div>
+              <div class="letra-menu boton-instrucciones">Instrucciones</div>
+              <div class="letra-menu boton-ver-manifestaciones">Las Manifestaciones</div>
+              <div class="letra-menu boton-resumir-partida">Resumir Partida</div>
+              <div class="letra-menu boton-salir">Salir</div></a>
             </font>
           </div>
-          <div id="container-menu-inicial" class="game_container w3-col s4 m4 l4">
+          <div id="texto-menu-inicial-english" class="epistolar w3-col s4 m4 l4 text-right english" style="padding-top:10%;">
+            <font size="4" color="white">
+              <div class="letra-menu boton-introduccion" style="color:red;">Introduction</div>
+              <div class="letra-menu boton-instrucciones">Instructions</div>
+              <div class="letra-menu boton-ver-manifestaciones" >Manifestations</div>
+              <div class="letra-menu boton-resumir-partida">Load Game</div>
+              <div class="letra-menu boton-salir">Exit</div></a>
+            </font>
+          </div>
+
+          <div id="container-menu-inicial" class="menu-container w3-col s4 m4 l4">
+            <div id="texto-introduccion-spanish" class="texto-introduccion-spanish spanish centertext">
+              <font class="century-gothic-b" color="black">
+                <p>
+                <i>FUNDABITAT</i> y su proyecto <i>ANAR</i><br/>
+                -Archivo Nacional de Arte Rupestre-<br/>
+                tienen el placer de presentar<br/>
+                en el marco de su Programa de educación<br/>
+                <i>FACILITADORES en ESCUELA ACTIVA</i>,<br/>
+                la aplicacion para web<br/>
+                PUZZLES DESLIZANTES EDUCATIVOS:<br/>
+                MANIFESTACIONES RUPESTRES VENEZOLANAS<br/>
+                </p>
+
+                <p>
+                Las Manifestaciones Rupestres<br/>
+                constituyen los indicios más antiguos<br/>
+                conocidos de un intento de comunicación humana;<br/>
+                existen en todo el continente americano,<br/>
+                y el resto del mundo
+                </p>
+
+                <p>
+                Uno de los objetivos del ANAR<br/>
+                es el conocimiento y difusión, de forma lúdica<br/>
+                y como estrategia pedagógica de preservación<br/>
+                del <i>PATRIMONIO RUPESTRE VENEZOLANO</i><br/>
+                </p>
+              </font>
+
+            </div>
+
+            <div id="texto-introduccion-english" class="texto-introduccion-english english centertext">
+              <font class="century-gothic-b" color="black">
+                <p>
+                <i>FUNDABITAT</i> and its project <i>ANAR</i><br/>
+                -Archivo Nacional de Arte Rupestre-<br/>
+                (National Rock Art Archive)<br/>
+                included in the framework of its<br/>
+                <i>ACTIVE SCHOOL FACILITATORS</i> Education Program<br/>
+                are glad to present the web aplication<br/>
+                Educational Sliding Puzzle<br/>
+                </p>
+
+                <p>
+                Rock Art Manifestations<br/>
+                are the oldest known evidence<br/>
+                of communications attempts among humans.<br/>
+                They are present all over the American continent<br/>
+                and worldwide.
+                </p>
+
+                <p>
+                One of the ANAR objectives<br/>
+                is the knowledge and dissemination<br/>
+                of our Archeologic Cultural Patrimony<br/>
+                </p>
+              </font>
+
+            </div>
+
+            <div id="texto-instrucciones-spanish" style="display:none;"class="spanish centertext texto-instrucciones-spanish">
+              <font class="century-gothic-b" color="black">
+                <p>Completa, arma y conoce<br/>
+                  las<br/>
+                  <b>Manifestaciones rupestres venezolanas</b><br/>
+                  de forma divertida<br/>
+                </p>
+                <p>
+                Arrastra y suelta los cuadros<br/>
+                hasta conseguir las imágenes correctas<br/>
+                antes que se acabe el tiempo<br/>
+                </p>
+
+                <p>
+                ...mientras ejercitas tu cerebro
+                </p>
+              </font>
+              <img src="www/img/solinstrucciones.png" style="padding-top:10%;">
+            </div>
+
+            <div id="texto-instrucciones-english" style="display:none;"class="english centertext texto-instrucciones-english">
+              <font class="century-gothic-b" color="black">
+                <p>Complete, assemble and learn<br/>
+                  the <b> Venezuelan Rock Art Manifestations</b><br/>
+                  in a fun way.<br/>
+                </p>
+                <p>
+                Drag and drop the frames<br/>
+                until you get the correct images<br/>
+                before time runs out.<br/>
+                </p>
+
+                <p>
+                ... While exercising your brain.
+                </p>
+              </font>
+              <img src="www/img/solinstrucciones.png" style="padding-top:10%;">
+            </div>
           </div>
           <div id="spacing" class="w3-col s3 m3 l3 not-text" unselectable="on">&nbsp;</div>
         </div>
@@ -114,7 +223,7 @@
               Parte de la vista de seleccion-imagen, seleccion niveles 
           
           -->
-          <div id="vista-seleccion-imagen-niveles" class="vista-seleccion-imagen  w3-col s2 m2 l2 ">
+          <div id="vista-seleccion-imagen-niveles" class="vista-seleccion-imagen  w3-col s2 m2 l2 " style="margin-top:20%;">
             <font size="3" color="white"><b>
             <p unselectable="on" class="not-text">niveles</p>
             <div id="nivel-3" class="link" style="background:white;color:black" unselectable="on" onClick="cambiarNivel(3);">3x3</div>

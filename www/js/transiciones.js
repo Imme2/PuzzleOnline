@@ -50,7 +50,7 @@ function cambiarLenguaje(oldLang,newLang){
 		if ($(this).css('display') != "none"){
 			$(this).fadeOut('slow',function(){
 				$(this).css('display','none');
-				idUsado = $(this).attr("id")
+				var idUsado = $(this).attr("id");
 				idUsado = idUsado.replace(oldLang,"");
 				$("#" + idUsado + newLang).fadeIn('slow',function(){
 					$(this).css('display','initial');
@@ -62,11 +62,6 @@ function cambiarLenguaje(oldLang,newLang){
 
 
 }
-
-
-
-
-
 
 
 // Esperamos que la pagina este lista.
@@ -126,6 +121,41 @@ $(document).ready(function(){
 	$('#boton-espanol').click(function(){
 		cambiarLenguaje(lenguaje,'spanish');
 		lenguaje = "spanish"
+	});
+
+	/* Para las letras del menu principal */
+
+	// Para simplificar cosas, guardamos que esta activo
+	activo = "introduccion";
+
+	$('.boton-introduccion').click(function(){
+		if (activo != "introduccion"){
+			auxActivo = activo
+			$('.boton-'+auxActivo).css("color","white");
+			$('.boton-introduccion').css("color","red");
+			$('.texto-'+auxActivo+'-'+lenguaje).fadeOut('slow',function(){
+				$(this).css('display','none');
+				$('.texto-introduccion-'+lenguaje).fadeIn('slow',function(){
+					$(this).css('display','initial');
+				});
+			});
+			activo = "introduccion";
+		}
+	});
+
+	$('.boton-instrucciones').click(function(){
+		if (activo != "instrucciones"){
+			auxActivo = activo
+			$('.boton-'+auxActivo).css("color","white");
+			$('.boton-instrucciones').css("color","red");
+			$('.texto-'+auxActivo+'-'+lenguaje).fadeOut('slow',function(){
+				$(this).css('display','none');
+				$('.texto-instrucciones-'+lenguaje).fadeIn('slow',function(){
+					$(this).css('display','initial');
+				});
+			});
+			activo = "instrucciones";
+		}
 	});
 
 });

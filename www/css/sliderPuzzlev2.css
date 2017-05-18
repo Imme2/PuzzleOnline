@@ -54,10 +54,9 @@ Tama;o  y caracteristicas
 
 .game_info_container{
   background: black;
-  padding: 30px 30px 50px 50px;
   margin: 0;
-  min-height: 100%
-
+  min-height: 100%;
+  padding-bottom: 2%;
 }
 
 /* contenedor del juego, que tiene como fondo la textura */
@@ -69,6 +68,19 @@ Tama;o  y caracteristicas
   min-width: 375px;
   min-height: 400px;
   max-width: 95%;
+}
+
+/* Contenedor que se usa para el menu principal */
+
+.menu-container{
+  text-align:center;
+  background-image: url("../img/texturaFondo2.jpg");
+  display:inline-block;
+  padding-top: 50px;
+  min-width: 375px;
+  min-height: 400px;
+  max-width: 100%;
+  padding-bottom: 5%;
 }
 
 /* codigo para que nuestras imagenes se reescalen apropiadamente */
@@ -99,8 +111,8 @@ Tama;o  y caracteristicas
 /* Letra del Menu inicial */
 
 .letra-menu{
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   cursor:pointer;
 }
 
