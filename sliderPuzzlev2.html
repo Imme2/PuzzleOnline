@@ -151,7 +151,7 @@
 
             </div>
 
-            <div id="texto-instrucciones-spanish" style="display:none;"class="spanish centertext texto-instrucciones-spanish">
+            <div id="texto-instrucciones-spanish" style="display:none;" class="spanish centertext texto-instrucciones-spanish">
               <font class="century-gothic-b" color="black">
                 <p>Completa, arma y conoce<br/>
                   las<br/>
@@ -264,42 +264,39 @@
           <!-- un espacio vacio para alinear las cosas -->
           <div id="spacing" class="w3-col s2 m2 l2" unselectable="on">&nbsp;</div>
           <!-- Aqui tenemos la textura y el juego principal -->
-          <div id="container-juego" class="game_container vista-juego w3-col s8 m8 l8 w3-row">
-            <!-- este spacing se usa para separar del borde el canvas-->
-            <div id="spacing not-text" unselectable="on">&nbsp;</div>
+          <div id="container-juego" class="game_container vista-juego w3-col s8 m8 l8 w3-display-container">
             <!-- container de los movimientos y el reloj -->
-            <div id="container-movimientos" style="padding-top:27%;" class="w3-col s2 m2 l2 w3-rows">
-              <div id="reloj-arena"  class="w3-col s6 m6 l6">
+            <div id="container-movimientos" class="">
+              <div class="w3-padding w3-display-left" id="reloj-arena">
                 <img src="www/img/relojarena.png" width="75%">
-              </div>
-              <div id="movimientos-completo" style="padding-top:6%;" class="w3-col s6 m6 l6"> 
+                <span id="movimientos-completo">
                 <font class="century-gothic-b" color="black">
                   <p style="margin:0" id="movimientos"> 0 </p> <p>movidas</p>
                 </font>
-              </div> 
-              <div id="cosas" class="century-gothic-b" style="padding-top:140%;padding-left:10%"><button class="boton-guardar" type="button"><font style="padding: 0px 0px 0px 0px;margin:0;" color="black" size="1ev"> guardar partida</font></button>
+                </span>
               </div>
-            </div>
-            <div id="juego-principal" class="w3-col s8 m8 l8">
+              <div class="w3-padding w3-display-bottomleft" id="boton-guardar-partida" class="century-gothic-b"><button class="boton-guardar" type="button"><font style="padding: 0px 0px 0px 0px;margin:0;" color="black" size="1ev"> guardar partida</font></button>
+              </div>
+           </div> 
+           <div id="juego-principal" class="w3-display-middle" style="width: 70%;">
               <!-- Divisor que contiene al canvas del juego y 
                    todo lo que se muestra en el -->
               <!-- NO USAR NINGUN PORCENTAJE AL DEFINIR ESTE CANVAS -->
-              <canvas width="400" height="400" id ="canvas-juego">
+              <canvas width="400" height="400" style="border: 2px solid black;" id ="canvas-juego">
               <a> Su browser no soporta HTML5 </a>
               </canvas>
             </div>
-            <div>
+            <div class="w3-padding w3-display-topright">
               <img id="imagen-original" src="" width="100" height="100">
-            </div> 
-            <div id="botones" style="padding-top:15%" class="w3-col s2 m2 l2 w3-row">
-              <div class="w3-col m6 l6 s6">
-                <img src="www/img/pausa.png" width="80" height="70">
-              </div>              
-              <div id="boton-hint" class="w3-col m6 l6 s6" style="padding-top:8%;">
-                <span style="font-size:40px;color:black" id="boton-hint" class="not-text glyphicon glyphicon-question-sign"></span>
-              </div>
-              <!--<button type="button" onmousedown= "colocarHint();" onmouseup="quitarHint();" onmouseleave="quitarHint();" class="btn btn-lg btn-custom">-->              
-
+            </div>
+            <div id="botones" class="w3-padding w3-display-right">
+                <div class="w3-cell w3-cell-middle">
+                  <img src="www/img/pausa2.png" width="80" height="50">
+                </div>
+                <div class="w3-cell w3-cell-middle">
+                  <span style="font-size:40px;color:black" id="boton-hint" class="not-text glyphicon glyphicon-question-sign"></span>
+                </div>
+                <!--<button type="button" onmousedown= "colocarHint();" onmouseup="quitarHint();" onmouseleave="quitarHint();" class="btn btn-lg btn-custom">-->              
             </div>
           </div>
         </div>

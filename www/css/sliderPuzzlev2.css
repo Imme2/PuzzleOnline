@@ -195,7 +195,7 @@ Tama;o  y caracteristicas
   padding-bottom:5px;
   padding-top:3px;
   color:white;
-  size:2vw;
+  font-size:2vw;
 }
 
 .explicacion-text{
@@ -206,5 +206,10 @@ Tama;o  y caracteristicas
   text-align: right;
   padding-top: 30%;
   font-size: 1vw;
+  width: 10%;
   color:white;
+}
+
+.vista-juego{
+  min-height: 500px; !important
 }
