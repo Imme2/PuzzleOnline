@@ -62,22 +62,48 @@ function startSlider(imageURL, sizeOfBoard){
 }
 
 
+// Usa fisher-gates para randomizar posiciones de
+//  las diferentes "tiles"
+function initTiles() {
+	var i = tileCount * tileCount - 1;
+	while (i > 0) {
+		var j = Math.floor(Math.random() * i);
+		var xi = i % tileCount;
+		var yi = Math.floor(i / tileCount);
+		var xj = j % tileCount;
+		var yj = Math.floor(j / tileCount);
+		swapTiles(xi, yi, xj, yj);
+		--i;
+	}
+}
+
+
 // Esta funcion coloca la primera configuracion del tablero
-// TODO: hacer que sea al azar
 function setBoard() {
 	boardParts = new Array(tileCount);
 	for (var i = 0; i < tileCount; ++i) {
 		boardParts[i] = new Array(tileCount);
 		for (var j = 0; j < tileCount; ++j) {
 			boardParts[i][j] = new Object;
-			boardParts[i][j].x = (tileCount - 1) - i;
-			boardParts[i][j].y = (tileCount - 1) - j;
+			boardParts[i][j].x = i;
+			boardParts[i][j].y = j;
 		}
 	}
-	emptyLoc.x = boardParts[tileCount - 1][tileCount - 1].x;
-	emptyLoc.y = boardParts[tileCount - 1][tileCount - 1].y;
+	// Last spot is the empty spot
+	emptyLoc.x = tileCount-1;
+	emptyLoc.y = tileCount-1;
 	solved = false;
+	initTiles();
+	if (!isSolvable(tileCount, tileCount, emptyLoc.y + 1)){
+		if (emptyLoc.y == 0 && emptyLoc.x <= 1) {
+			swapTiles(tileCount - 2, tileCount - 1, tileCount - 1, tileCount - 1);
+		} else {
+			swapTiles(0, 0, 1, 0);
+		}
+	}
 }
+
+
 
 
 /* Funcion que cambia la escala dinamicamente (inutil por ahora)
@@ -86,7 +112,8 @@ tileCount = this.value;
 tileSize = boardSize / tileCount;
 setBoard();
 drawTiles();
-}; */
+}; 
+*/
 
 // Funciones que registran el mouse
 
@@ -124,12 +151,28 @@ function slideTile(toLoc, fromLoc) {
 	if (!solved) {
 		boardParts[toLoc.x][toLoc.y].x = boardParts[fromLoc.x][fromLoc.y].x;
 		boardParts[toLoc.x][toLoc.y].y = boardParts[fromLoc.x][fromLoc.y].y;
+		// ONLY WORKS IF EMPTY TILE is LAST TILE, fix if that ever changes
 		boardParts[fromLoc.x][fromLoc.y].x = tileCount - 1;
 		boardParts[fromLoc.x][fromLoc.y].y = tileCount - 1;
-		toLoc.x = fromLoc.x;
-		toLoc.y = fromLoc.y;
+		emptyLoc.x = fromLoc.x;
+		emptyLoc.y = fromLoc.y;
 		movimientos++;
 		checkSolved();
+	}
+}
+
+function swapTiles(i, j, k, l) {
+	var temp = new Object();
+	temp = boardParts[i][j];
+	boardParts[i][j] = boardParts[k][l];
+	boardParts[k][l] = temp;
+	if (emptyLoc.x == i && emptyLoc.y == j){
+		emptyLoc.x = k;
+		emptyLoc.y = l;
+	}
+	else if (emptyLoc.x == k && emptyLoc.y == l){
+		emptyLoc.x = i;
+		emptyLoc.y = j;
 	}
 }
 
@@ -167,28 +210,14 @@ function drawTiles() {
 	document.getElementById("movimientos").innerHTML = movimientos;
 }
 
-// Colocar Hint y quitarlo cuando sea presionado un boton.
-function colocarHint(){
-	// Solo dibujamos toda la imagen.
-	canvas.drawImage(img,0,0,img.width,img.height,0,0,400,400);
-
-};
-
-function quitarHint(){
-	// Redibujamos las tiles.
-	drawTiles();
-};
 
 // Hacemos el bind de los hints a el boton
 
 document.getElementById("boton-hint").onmousedown = function(){
-	colocarHint();
-};
-document.getElementById("boton-hint").onmouseup = function(){
-	quitarHint();
-};
-document.getElementById("boton-hint").onmouseleave = function(){
-	quitarHint();
+	document.getElementById("imagen-original").style.display = "initial"
+	setTimeout(function(){
+		document.getElementById("imagen-original").style.display="none";
+	},3000);
 };
 
 
@@ -203,8 +232,48 @@ function resumirJuego(juego){
 
 function guardarJuego(){
 	stringGuardar = "";
-	stringGuardar += nivel + " ";
-	stringGuardar += img.src;
-	stringGuardar += "hola";
+	stringGuardar += nivel + ";";
+	stringGuardar += img.src + ";";
+	for ()
+	stringGuardar += ;
 	alert(stringGuardar)
+}
+
+
+// Cuenta inversiones de un puzzle entre dos posiciones.
+function countInversions(i, j) {
+	var inversions = 0;
+	var tileNum = j * tileCount + i;
+	var lastTile = tileCount * tileCount;
+	var tileValue = boardParts[i][j].y * tileCount + boardParts[i][j].x;
+	for (var q = tileNum + 1; q < lastTile; ++q) {
+		var k = q % tileCount;
+		var l = Math.floor(q / tileCount);
+
+		var compValue = boardParts[k][l].y * tileCount + boardParts[k][l].x;
+		if (tileValue > compValue && tileValue != (lastTile - 1)) {
+			++inversions;
+		}
+	}
+	return inversions;
+}
+
+// Suma las inversiones de un puzzle.
+function sumInversions() {
+	var inversions = 0;
+	for (var j = 0; j < tileCount; ++j) {
+		for (var i = 0; i < tileCount; ++i) {
+			inversions += countInversions(i, j);
+		}
+	}
+	return inversions;
+}
+
+// Define si un puzzle es resolvible
+function isSolvable(width, height, emptyRow) {
+	if (width % 2 == 1) {
+		return (sumInversions() % 2 == 0)
+	} else {
+		return ((sumInversions() + height - emptyRow) % 2 == 0)
+	}
 }
